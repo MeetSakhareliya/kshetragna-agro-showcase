@@ -32,8 +32,8 @@ export const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground mb-1">Address</p>
                     <p className="text-muted-foreground">
-                      Agricultural Zone, Village Road<br />
-                      District, State - 123456<br />
+                      B-22 Gopal Charan Industrial Park Bakrol <br />
+                      Ahmedabad, Gujarat - 382430<br />
                       India
                     </p>
                   </div>
@@ -43,8 +43,8 @@ export const Contact = () => {
                   <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-foreground mb-1">Phone</p>
-                    <p className="text-muted-foreground">+91 98765 43210</p>
-                    <p className="text-muted-foreground">+91 98765 43211</p>
+                    <p className="text-muted-foreground">+91 90811 81191</p>
+                    <p className="text-muted-foreground">+91 90811 81191</p>
                   </div>
                 </div>
 
