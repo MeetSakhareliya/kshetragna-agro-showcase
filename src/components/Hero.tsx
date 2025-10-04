@@ -4,7 +4,7 @@ import kaeLogo from "@/assets/kae-logo.png";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -34,7 +34,7 @@ export const Hero = () => {
         {/* Info Cards */}
         <div className="flex flex-wrap justify-center gap-6 my-12">
           <div className="bg-card/80 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-md border border-border hover:shadow-lg transition-shadow">
-            <p className="text-lg font-semibold text-primary">Premium Quality Products</p>
+            <p className="text-lg font-semibold text-primary">Premium Quality Equipment</p>
           </div>
           <div className="bg-card/80 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-md border border-border hover:shadow-lg transition-shadow">
             <p className="text-lg font-semibold text-primary">Most Trusted</p>

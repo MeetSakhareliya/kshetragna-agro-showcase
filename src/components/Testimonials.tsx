@@ -42,21 +42,28 @@ const testimonials = [
 
 export const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 2;
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Auto-slide every 5 seconds
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
+    }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [totalPages]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+  };
+
+  const getCurrentTestimonials = () => {
+    const start = currentIndex * itemsPerPage;
+    return testimonials.slice(start, start + itemsPerPage);
   };
 
   return (
@@ -70,34 +77,27 @@ export const Testimonials = () => {
         </p>
 
         <div className="relative">
-          {/* Main Testimonial */}
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <Card className="max-w-3xl mx-auto border-border shadow-lg">
-                    <CardContent className="p-8 md:p-12">
-                      <Quote className="w-12 h-12 text-accent mb-6" />
-                      <p className="text-xl md:text-2xl text-foreground mb-6 leading-relaxed">
-                        "{testimonial.text}"
-                      </p>
-                      <div className="flex items-center gap-2 mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <span key={i} className="text-accent text-2xl">★</span>
-                        ))}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg text-foreground">{testimonial.name}</p>
-                        <p className="text-muted-foreground">{testimonial.location}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
+          {/* Testimonial Grid */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {getCurrentTestimonials().map((testimonial) => (
+              <Card key={testimonial.id} className="border-border shadow-lg animate-fade-in">
+                <CardContent className="p-8">
+                  <Quote className="w-10 h-10 text-accent mb-4" />
+                  <p className="text-lg text-foreground mb-4 leading-relaxed">
+                    "{testimonial.text}"
+                  </p>
+                  <div className="flex items-center gap-2 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <span key={i} className="text-accent text-xl">★</span>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">{testimonial.name}</p>
+                    <p className="text-muted-foreground text-sm">{testimonial.location}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Navigation Buttons */}
@@ -118,14 +118,14 @@ export const Testimonials = () => {
 
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
+            {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex ? "bg-primary w-8" : "bg-muted-foreground/30"
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Go to page ${index + 1}`}
               />
             ))}
           </div>

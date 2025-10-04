@@ -48,10 +48,10 @@ export const Products = () => {
     <section id="products" className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-          Our Products
+          Our Equipment
         </h2>
         <p className="text-center text-muted-foreground text-lg mb-12">
-          Premium quality agricultural products directly from our farms
+          Premium quality agricultural equipment for modern farming
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
