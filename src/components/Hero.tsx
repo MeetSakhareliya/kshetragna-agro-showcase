@@ -10,11 +10,11 @@ export const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background/95" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center animate-fade-in">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-36 text-center animate-fade-in">
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
           Kshetragna Agri Engitech

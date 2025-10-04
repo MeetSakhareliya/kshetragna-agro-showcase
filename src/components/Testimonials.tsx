@@ -48,7 +48,7 @@ export const Testimonials = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalPages);
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [totalPages]);
@@ -78,7 +78,7 @@ export const Testimonials = () => {
 
         <div className="relative">
           {/* Testimonial Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto h-[350px]">
             {getCurrentTestimonials().map((testimonial) => (
               <Card key={testimonial.id} className="border-border shadow-lg animate-fade-in">
                 <CardContent className="p-8">
