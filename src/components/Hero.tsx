@@ -15,13 +15,6 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center animate-fade-in">
-        {/* Logo */}
-        <img 
-          src={kaeLogo} 
-          alt="Kshetragna Agri Engitech" 
-          className="w-48 h-48 mx-auto mb-8 drop-shadow-lg hover:scale-105 transition-transform duration-300"
-        />
-
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
           Kshetragna Agri Engitech

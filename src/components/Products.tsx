@@ -1,43 +1,61 @@
 import { useState } from "react";
 import { X, IndianRupee } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import productVegetables from "@/assets/product-vegetables.jpg";
-import productWheat from "@/assets/product-wheat.jpg";
-import productRice from "@/assets/product-rice.jpg";
-import productPulses from "@/assets/product-pulses.jpg";
+import equipmentTractor from "@/assets/equipment-tractor-1.jpg";
+import equipmentRotavator from "@/assets/equipment-rotavator.jpg";
+import equipmentCultivator from "@/assets/equipment-cultivator-1.jpg";
+import equipmentSeeder from "@/assets/equipment-seeder.jpg";
+import equipmentHarrow from "@/assets/equipment-harrow.jpg";
+import equipmentSprayer from "@/assets/equipment-sprayer.jpg";
 
 const products = [
   {
     id: 1,
-    name: "Fresh Organic Vegetables",
-    description: "Farm-fresh organic vegetables grown without pesticides. Includes tomatoes, carrots, leafy greens, and seasonal produce.",
-    price: 150,
-    unit: "per kg",
-    image: productVegetables,
+    name: "Tractor with Attachment",
+    description: "Modern agricultural tractor with versatile attachments. Perfect for plowing, tilling, and various farming operations. Powerful and fuel-efficient for daily farm work.",
+    price: 45000,
+    unit: "per unit",
+    image: equipmentTractor,
   },
   {
     id: 2,
-    name: "Premium Golden Wheat",
-    description: "High-quality wheat grains perfect for making flour. Rich in nutrients and freshly harvested from our farms.",
-    price: 30,
-    unit: "per kg",
-    image: productWheat,
+    name: "Rotavator",
+    description: "Heavy-duty rotavator for soil preparation. Features sharp blades for efficient tilling and mixing of soil. Ideal for preparing fields for sowing and improving soil structure.",
+    price: 35000,
+    unit: "per unit",
+    image: equipmentRotavator,
   },
   {
     id: 3,
-    name: "Organic Basmati Rice",
-    description: "Aromatic basmati rice with long grains. Naturally grown using traditional farming methods for authentic taste.",
-    price: 80,
-    unit: "per kg",
-    image: productRice,
+    name: "Cultivator",
+    description: "Multi-purpose cultivator for seedbed preparation and weed control. Adjustable depth settings and robust construction. Essential tool for modern farming operations.",
+    price: 28000,
+    unit: "per unit",
+    image: equipmentCultivator,
   },
   {
     id: 4,
-    name: "Mixed Pulses & Lentils",
-    description: "Variety pack of pulses including toor dal, moong dal, masoor dal, and chana. Rich in protein and essential nutrients.",
-    price: 120,
-    unit: "per kg",
-    image: productPulses,
+    name: "Seed Drill Planter",
+    description: "Precision seed drill for uniform seed placement. Adjustable row spacing and seed metering system. Ensures optimal crop spacing and reduces seed wastage.",
+    price: 32000,
+    unit: "per unit",
+    image: equipmentSeeder,
+  },
+  {
+    id: 5,
+    name: "Disc Harrow",
+    description: "Heavy-duty disc harrow for breaking up soil clods and leveling fields. Multiple disc configuration for thorough soil preparation. Durable construction for long-lasting performance.",
+    price: 40000,
+    unit: "per unit",
+    image: equipmentHarrow,
+  },
+  {
+    id: 6,
+    name: "Agricultural Sprayer",
+    description: "High-efficiency sprayer pump for pesticide and fertilizer application. Adjustable nozzles and pressure settings. Large tank capacity for covering extensive farm areas.",
+    price: 18000,
+    unit: "per unit",
+    image: equipmentSprayer,
   },
 ];
 
@@ -54,7 +72,7 @@ export const Products = () => {
           Premium quality agricultural equipment for modern farming
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <Card
               key={product.id}
