@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/kshetragna-agro-showcase/",
+  // Use root base in development so localhost:8080/about works.
+  // Use the repository subpath for production builds (GitHub Pages).
+  base: mode === "development" ? "/" : "/kshetragna-agro-showcase/",
   server: {
     host: "::",
     port: 8080,

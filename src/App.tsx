@@ -11,10 +11,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+  <TooltipProvider>
+  <Toaster />
+  <Sonner />
+  {/* Ensure the router uses Vite's base (import.meta.env.BASE_URL) so routes resolve correctly in dev and production */}
+  <BrowserRouter basename={import.meta.env.BASE_URL || '/'}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
