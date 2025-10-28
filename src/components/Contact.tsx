@@ -81,7 +81,7 @@ export const Contact = () => {
                     <Facebook className="w-7 h-7 text-white" />
                   </a>
                   <a
-                    href="https://www.indiamart.com"
+                    href="https://www.indiamart.com/kshetragna-agri-engitech/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-14 h-14 rounded-full bg-orange-600 flex items-center justify-center hover:scale-110 transition-transform shadow-lg"

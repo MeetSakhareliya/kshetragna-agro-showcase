@@ -1,60 +1,73 @@
 import { IndianRupee } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import equipmentTractor from "@/assets/equipment-tractor-1.jpg";
-import equipmentRotavator from "@/assets/equipment-rotavator.jpg";
-import equipmentCultivator from "@/assets/equipment-cultivator-1.jpg";
-import equipmentSeeder from "@/assets/equipment-seeder.jpg";
-import equipmentHarrow from "@/assets/equipment-harrow.jpg";
-import equipmentSprayer from "@/assets/equipment-sprayer.jpg";
+import brustCutter from "@/assets/brush-cutter.jpg";
+import lawnMover from "@/assets/lawn-mover.jpg";
+import hedgeTrimmer from "@/assets/hedge-trimmer.jpg";
+import chainSaw from "@/assets/chain-saw.jpg";
+import brassSprinkler from "@/assets/brass-sprinkler.webp";
+import powerTriller from "@/assets/power-tiller.webp";
+import earthAuger from "@/assets/earth-auger.webp";
+import powerReaper from "@/assets/power-reaper.webp";
 
 const products = [
   {
     id: 1,
-    name: "Tractor with Attachment",
-    description: "Modern agricultural tractor with versatile attachments. Perfect for plowing, tilling, and various farming operations. Powerful and fuel-efficient for daily farm work.",
-    price: 45000,
-    unit: "per unit",
-    image: equipmentTractor,
+    name: "Brush Cutter",
+    description: "Our range of products include Brush Cutter With Multi Attachments, 1400 W Electric Brush Cutter, 2 Stroke Petrol Brush Cutter, Lawn Mower Electric, Shoulder Brush Cutter and KAE Petrol Brush Cutter.",
+    image: brustCutter,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/brush-cutter.html"
   },
   {
     id: 2,
-    name: "Rotavator",
-    description: "Heavy-duty rotavator for soil preparation. Features sharp blades for efficient tilling and mixing of soil. Ideal for preparing fields for sowing and improving soil structure.",
-    price: 35000,
-    unit: "per unit",
-    image: equipmentRotavator,
+    name: "Lawn Mover",
+    description: "Manufacturer of a wide range of products which include KAE-18 2250 Watt Electric Lawn Mower, KAE-15 1600 W Electric Lawn Mower, KAE- 16 2250 W Electric Lawn Mower, Kae 21 Electric Lawn Mower, KAE - Lawn Mowers and Lawn Mowers KAE 15.",
+    image: lawnMover,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/lawn-mower.html"
+
   },
   {
     id: 3,
-    name: "Cultivator",
-    description: "Multi-purpose cultivator for seedbed preparation and weed control. Adjustable depth settings and robust construction. Essential tool for modern farming operations.",
-    price: 28000,
-    unit: "per unit",
-    image: equipmentCultivator,
+    name: "Hedge Trimmer",
+    description: "We are a leading Manufacturer of KAE Petrol Hedge Trimmer, Chain Saw Machine, 500 W Electric Hedge Trimmer and Gehu Cutting Machine from Ahmedabad, India.",
+    image: hedgeTrimmer,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/hedge-trimmer.html"
   },
   {
     id: 4,
-    name: "Seed Drill Planter",
-    description: "Precision seed drill for uniform seed placement. Adjustable row spacing and seed metering system. Ensures optimal crop spacing and reduces seed wastage.",
-    price: 32000,
-    unit: "per unit",
-    image: equipmentSeeder,
+    name: "Petrol Chain Saw",
+    description: "Offering you a complete choice of products which include 62CC 2 Stroke Petrol Chain Saw, 58CC 2 Stroke Petrol Chain Saw and Petrol Chain Saw.",
+    image: chainSaw,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/petrol-chain-saw.html"
+
   },
   {
     id: 5,
-    name: "Disc Harrow",
-    description: "Heavy-duty disc harrow for breaking up soil clods and leveling fields. Multiple disc configuration for thorough soil preparation. Durable construction for long-lasting performance.",
-    price: 40000,
-    unit: "per unit",
-    image: equipmentHarrow,
+    name: "Heavy Duty Sprinkler",
+    description: "Our range of products include Heavy Duty Brass Impact Sprinkler and Brass Impact Sprinkler.",
+    image: brassSprinkler,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/heavy-duty-brass-impact-sprinkler.html"
+
   },
   {
     id: 6,
-    name: "Agricultural Sprayer",
-    description: "High-efficiency sprayer pump for pesticide and fertilizer application. Adjustable nozzles and pressure settings. Large tank capacity for covering extensive farm areas.",
-    price: 18000,
-    unit: "per unit",
-    image: equipmentSprayer,
+    name: "Power Tiller and Weeder",
+    description: "Our range of products include 9 HP Petrol Power Weeder and 5 HP Mini Power Tiller.",
+    image: powerTriller,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/power-tiller-and-weeder.html"
+  },
+  {
+    id: 7,
+    name: "Garden Hand Tools",
+    description: "Leading Manufacturer of Tree Cutter Machine, Garden Tool Set, Earth Auger Machine, Garden Hand Tools and Garden Hand Cultivators from Ahmedabad.",
+    image: earthAuger,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/garden-hand-tools.html"
+  },
+  {
+    id: 8,
+    name: "Power Reaper",
+    description: "Providing you the best range of 9 HP Petrol Crop Harvesting Reaper and 7 HP Petrol Crop Harvesting Reaper with effective & timely delivery.",
+    image: powerReaper,
+    url: "https://www.indiamart.com/kshetragna-agri-engitech/power-reaper.html"
   },
 ];
 
@@ -88,7 +101,8 @@ export const Products = () => {
                   {product.description}
                 </p>
                 <a
-                  href="#"
+                  href={product.url}
+                  target="_blank"
                   className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-sm font-medium"
                 >
                   Get More Info →

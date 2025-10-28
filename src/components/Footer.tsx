@@ -54,7 +54,7 @@ export const Footer = () => {
                 <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="https://www.indiamart.com"
+                href="https://www.indiamart.com/kshetragna-agri-engitech/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity flex items-center gap-1 text-sm font-bold"
