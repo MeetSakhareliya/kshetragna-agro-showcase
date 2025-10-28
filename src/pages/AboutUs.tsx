@@ -2,13 +2,17 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Handshake, Scale, TrendingUp, Building, Users, FileText, Award } from "lucide-react";
+import { Contact as KAEContact} from "@/components/Contact";
+import { Download, Handshake, Scale, TrendingUp, Building, Users, FileText, Award, Contact } from "lucide-react";
+import brochurePdf from "@/assets/brochure/kshetragna-agri-engitech.pdf";
 
 const AboutUs = () => {
   const handleDownloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = '/brochure/company-brochure.pdf';
-    link.download = 'Kshetragna-Agri-Engitech-Brochure.pdf';
+    // brochurePdf is a string URL to the bundled asset provided by Vite
+    const link = document.createElement("a");
+    link.href = brochurePdf;
+    link.download = "Kshetragna-Agri-Engitech-Brochure.pdf";
+    // Ensure it's added to the DOM for the click to work in all browsers
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -151,7 +155,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-
+      <KAEContact/>
       <Footer />
     </div>
   );
