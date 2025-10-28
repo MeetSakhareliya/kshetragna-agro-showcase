@@ -21,7 +21,7 @@ export const Navigation = () => {
     { label: "Home", id: "home", type: "link" },
     { label: "Equipment", id: "products", type: "scroll" },
     { label: "Videos", id: "videos", type: "scroll" },
-    { label: "About Us", id: "/kshetragna-agro-showcase/about", type: "link" },
+    { label: "About Us", id: "/about", type: "link" },
     { label: "Testimonials", id: "testimonials", type: "scroll" },
     { label: "Contact", id: "contact", type: "scroll" },
   ];
