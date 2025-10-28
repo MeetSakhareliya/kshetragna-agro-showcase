@@ -1,24 +1,43 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import kaeLogo from "@/assets/kae-logo.png";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleNavigation = (id: string, type: string) => {
     if (type === "link") {
-      window.location.href = id;
-    } else {
+      // Use react-router navigation so the router's basename is respected
+      navigate(id);
+      setIsOpen(false);
+      return;
+    }
+
+    // For scroll links, if we're already on the home page, just scroll.
+    // If we're on a different route (for example /about), navigate to the
+    // home route and pass the target id in location.state so the home page
+    // can scroll to it after mounting.
+    if (location.pathname === "/") {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false);
       }
+      setIsOpen(false);
+      return;
     }
+
+    // Not on home: navigate to home and pass the id in state
+    navigate('/', { state: { scrollTo: id } });
+    setIsOpen(false);
   };
 
   const navItems = [
-    { label: "Home", id: "home", type: "link" },
+    // Home should scroll to the top of the page rather than navigate to a route
+    { label: "Home", id: "/", type: "link" },
     { label: "Equipment", id: "products", type: "scroll" },
     { label: "Videos", id: "videos", type: "scroll" },
     { label: "About Us", id: "/about", type: "link" },
