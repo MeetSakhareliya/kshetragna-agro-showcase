@@ -1,7 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import kaeLogo from "@/assets/kae-logo.png";
+
+// Small helper component to reliably show the short or full name depending
+// on viewport width. This protects against cases where Tailwind classes
+// may not be applied yet or are overridden.
+const ResponsiveName = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return !window.matchMedia("(min-width: 768px)").matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 768px)");
+    const handler = () => setIsMobile(!mq.matches);
+    // listen to changes
+    if (mq.addEventListener) {
+      mq.addEventListener("change", handler);
+    } else {
+      // Safari fallback
+      // @ts-ignore
+      mq.addListener(handler);
+    }
+    // sync initial
+    handler();
+    return () => {
+      if (mq.removeEventListener) {
+        mq.removeEventListener("change", handler);
+      } else {
+        // @ts-ignore
+        mq.removeListener(handler);
+      }
+    };
+  }, []);
+
+  return isMobile ? (
+    <span className="block font-bold text-lg text-foreground">KAE</span>
+  ) : (
+    <span className="font-bold text-lg text-foreground">Kshetragna Agri Engitech</span>
+  );
+};
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,9 +95,15 @@ export const Navigation = () => {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img src={kaeLogo} alt="Kshetragna" className="w-12 h-12" />
-            <span className="font-bold text-lg text-foreground hidden md:block">
-              Kshetragna Agri Engitech
-            </span>
+            {/* Full name on md+ screens, short name (KAE) on small screens.
+                Tailwind should handle showing/hiding, but some environments
+                may not apply classes immediately; to be robust we also
+                render text based on window width. */}
+            {typeof window !== "undefined" ? (
+              <ResponsiveName />
+            ) : (
+              <span className="font-bold text-lg text-foreground hidden md:block">Kshetragna Agri Engitech</span>
+            )}
           </button>
 
           {/* Desktop Menu */}
