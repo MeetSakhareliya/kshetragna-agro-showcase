@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
@@ -33,16 +33,16 @@ export const VideoGallery = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <section id="videos" className="py-20 px-6 bg-muted/30">
+    <section id="videos" className="py-20 px-6 bg-background/50">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
           Video Gallery
         </h2>
         <p className="text-center text-muted-foreground text-lg mb-12">
-          Watch our farming journey and sustainable practices
+          Watch our equipment in action
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {instagramReels.map((reel) => (
             <Card
               key={reel.id}
@@ -56,40 +56,48 @@ export const VideoGallery = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground">{reel.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2">Watch on Instagram</p>
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-foreground">{reel.title}</h3>
+                <p className="text-xs text-muted-foreground mt-1">Watch on Instagram</p>
               </div>
             </Card>
           ))}
         </div>
 
-        {/* Instagram Embed Modal */}
-        {selectedVideo && (
-          <div
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6 animate-fade-in"
-            onClick={() => setSelectedVideo(null)}
+        <div className="text-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
           >
-            <div className="max-w-md w-full animate-scale-in" onClick={(e) => e.stopPropagation()}>
-              <iframe
-                src={selectedVideo}
-                className="w-full h-[600px] rounded-2xl shadow-2xl bg-white"
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency
-                allow="encrypted-media"
-              />
-              <button
-                className="mt-6 mx-auto block px-8 py-3 bg-accent hover:bg-accent/90 text-white rounded-full font-semibold transition-colors"
-                onClick={() => setSelectedVideo(null)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
-
+            See More Videos →
+          </a>
+        </div>
       </div>
+
+      {/* Instagram Embed Modal */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6 animate-fade-in"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div className="max-w-md w-full animate-scale-in" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={selectedVideo}
+              className="w-full h-[600px] rounded-2xl shadow-2xl bg-white"
+              frameBorder="0"
+              scrolling="no"
+              allowTransparency
+              allow="encrypted-media"
+            />
+            <button
+              className="mt-6 mx-auto block px-8 py-3 bg-accent hover:bg-accent/90 text-white rounded-full font-semibold transition-colors"
+              onClick={() => setSelectedVideo(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

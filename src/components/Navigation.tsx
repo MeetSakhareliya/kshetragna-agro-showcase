@@ -5,20 +5,25 @@ import kaeLogo from "@/assets/kae-logo.png";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
+  const handleNavigation = (id: string, type: string) => {
+    if (type === "link") {
+      window.location.href = id;
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false);
+      }
     }
   };
 
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "Equipment", id: "products" },
-    { label: "Videos", id: "videos" },
-    { label: "Testimonials", id: "testimonials" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", id: "home", type: "scroll" },
+    { label: "Equipment", id: "products", type: "scroll" },
+    { label: "Videos", id: "videos", type: "scroll" },
+    { label: "About Us", id: "/about", type: "link" },
+    { label: "Testimonials", id: "testimonials", type: "scroll" },
+    { label: "Contact", id: "contact", type: "scroll" },
   ];
 
   return (
@@ -27,7 +32,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleNavigation("home", "scroll")}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img src={kaeLogo} alt="Kshetragna" className="w-12 h-12" />
@@ -41,7 +46,7 @@ export const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigation(item.id, item.type)}
                 className="text-muted-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
               >
                 {item.label}
@@ -65,7 +70,7 @@ export const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavigation(item.id, item.type)}
                   className="text-left text-muted-foreground hover:text-primary font-medium transition-colors py-2"
                 >
                   {item.label}

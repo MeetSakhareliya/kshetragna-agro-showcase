@@ -1,10 +1,10 @@
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import kaeLogo from "@/assets/kae-logo.png";
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-20 px-6 bg-muted/30">
+    <section className="py-20 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
           Get In Touch
@@ -81,10 +81,12 @@ export const Contact = () => {
                     <Facebook className="w-7 h-7 text-white" />
                   </a>
                   <a
-                    href="#"
-                    className="w-14 h-14 rounded-full bg-blue-400 flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                    href="https://www.indiamart.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 rounded-full bg-orange-600 flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
                   >
-                    <Twitter className="w-7 h-7 text-white" />
+                    <span className="text-white font-bold text-xs">IM</span>
                   </a>
                 </div>
               </CardContent>
